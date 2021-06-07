@@ -46,7 +46,8 @@ public class LoginController {
 //        if (!ValidateMobile.isMobile(mobile)){
 //            return ResultEntity.failed(MsgConstant.MESSAGE_Mobile_INVALIDATE);
 //        }
-        miaoshaUserService.login(response,loginVo);
-        return ResultEntity.successWithoutData();
+        String token = miaoshaUserService.login(response, loginVo);
+//        return ResultEntity.successWithoutData();
+        return ResultEntity.successWithData(token);
     }
 }

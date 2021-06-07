@@ -14,7 +14,7 @@ import java.util.List;
 @ControllerAdvice
 public class GlobalExecptionHandler {
 
-    @ExceptionHandler(value = Exception.class)
+    @ExceptionHandler(value ={BindException.class,GlobalException.class})
     public ResultEntity exceptionHandler(Exception e) {
         if (e instanceof GlobalException) {
             GlobalException ex = (GlobalException) e;

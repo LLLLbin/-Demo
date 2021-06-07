@@ -33,7 +33,7 @@ public class MiaoshaUserService {
         return miaoshaUserDao.getUserById(id);
     }
 
-    public boolean login(HttpServletResponse response, LoginVo loginVo) {
+    public String login(HttpServletResponse response, LoginVo loginVo) {
         String mobile = loginVo.getMobile();
         String password = loginVo.getPassword();
         //获取用户
@@ -49,7 +49,7 @@ public class MiaoshaUserService {
         //添加token
         String token= UUIDUtil.uuid();
         addCookie(response,user,token);
-        return true;
+        return token;
     }
 
     public void addCookie(HttpServletResponse response,MiaoshaUser user,String token){

@@ -3,7 +3,6 @@ package cn.lbin.miaosha.constant;
 public class MsgConstant {
     public static final String ATTR_NAME_EXCEPTION = "exception";
     public static final String MESSAGE_LOGIN_FAILED = "登录失败！请确认账号密码是否正确";
-
     public static final String MESSAGE_STRING_INVALIDATE = "字符串不能为空或长度为0！";
     public static final String MESSAGE_MOBILE_INVALIDATE = "手机号格式错误";
     public static final String MESSAGE_MOBILE_NOT_EXISTS = "手机号不存在";
@@ -27,4 +26,6 @@ public class MsgConstant {
     public static final String MESSAGE_TEMPLE_PROJECT_MISSING = "临时ProjectVO对象未找到！";
     public static final String ATTR_NAME_PORTAL_TYPE_LIST = "portal_type_list";
     public static final String ATTR_NAME_DETAIL_PROJECT = "detailProjectVO";
+    public static final String MIAOSHA_OVER="秒杀活动结束,库存不足";
+    public static final String MIAOSHA_REPEAT="秒杀活动商品只能购买一件";
 }
