@@ -57,7 +57,7 @@ public class MiaoshaUserService {
         redisService.set(MiaoshaUserKey.token,token,user);
         return true;
     }
-
+    //正常的登录方法
     public boolean login(HttpServletResponse response, LoginVo loginVo) {
         String mobile = loginVo.getMobile();
         String password = loginVo.getPassword();
@@ -76,6 +76,26 @@ public class MiaoshaUserService {
         addCookie(response, user, token);
         return true;
     }
+
+    //用于创建token的登陆方法
+//    public String login(HttpServletResponse response, LoginVo loginVo) {
+//        String mobile = loginVo.getMobile();
+//        String password = loginVo.getPassword();
+//        //获取用户
+//        MiaoshaUser user = getUserById(Long.valueOf(mobile));
+//        if (user == null) {
+//            throw new GlobalException(MsgConstant.MESSAGE_MOBILE_NOT_EXISTS);
+//        }
+//        //再次加密用户输入的密码，比对数据库中的密码是否一致
+//        String dbPass = MD5Util.fromPassToDbPass(password, user.getSalt());
+//        if (!dbPass.equals(user.getPassword())) {
+//            throw new GlobalException(MsgConstant.MESSAGE_LOGIN_FAILED);
+//        }
+//        //添加token
+//        String token = UUIDUtil.uuid();
+//        addCookie(response, user, token);
+//        return token;
+//    }
 
     public void addCookie(HttpServletResponse response, MiaoshaUser user, String token) {
         redisService.set(MiaoshaUserKey.token, token, user);

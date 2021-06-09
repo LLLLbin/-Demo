@@ -2,6 +2,7 @@ package cn.lbin.miaosha.controller;
 
 import cn.lbin.miaosha.constant.MsgConstant;
 import cn.lbin.miaosha.domain.User;
+import cn.lbin.miaosha.rabbitmq.MQProducer;
 import cn.lbin.miaosha.redis.RedisService;
 import cn.lbin.miaosha.redis.UserKey;
 import cn.lbin.miaosha.service.UserService;
@@ -23,6 +24,9 @@ public class TestController {
 
     @Autowired
     RedisService redisService;
+
+    @Autowired
+    MQProducer producer;
 
     @RequestMapping("/thymeleaf")
     public String test(Model model){
@@ -74,4 +78,38 @@ public class TestController {
             return ResultEntity.failed(MsgConstant.ATTR_NAME_MESSAGE);
         }
     }
+
+//    @RequestMapping("/mq")
+//    @ResponseBody
+//    public ResultEntity<String> mq(){
+//        producer.produce("hello rabbitmq");
+//        return ResultEntity.successWithoutData();
+//    }
+//
+//    @RequestMapping("/mq/topic")
+//    @ResponseBody
+//    public ResultEntity<String> mqTopic(){
+////        producer.produce("hello rabbitmq");
+//        producer.produceTopic("hello rabbitmq");
+//        return ResultEntity.successWithoutData();
+//    }
+//
+//    @RequestMapping("/mq/fanout")
+//    @ResponseBody
+//    public ResultEntity<String> mqFanout(){
+////        producer.produce("hello rabbitmq");
+//////        producer.produceTopic("hello rabbitmq");
+//        producer.produceFanout("hello fanout");
+//        return ResultEntity.successWithoutData();
+//    }
+//
+//    @RequestMapping("/mq/header")
+//    @ResponseBody
+//    public ResultEntity<String> mqHeader(){
+////        producer.produce("hello rabbitmq");
+//////        producer.produceTopic("hello rabbitmq");
+////        producer.produceFanout("hello fanout");
+//        producer.produceHander("hello headers");
+//        return ResultEntity.successWithoutData();
+//    }
 }

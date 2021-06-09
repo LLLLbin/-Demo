@@ -33,21 +33,24 @@ public class LoginController {
         return "login";
     }
 
+    //正常的登陆方法
     @RequestMapping("/doLogin")
     @ResponseBody
     public ResultEntity doLogin(HttpServletResponse response,
                                 @Valid LoginVo loginVo){
         log.info(loginVo.toString());
-//        String mobile = loginVo.getMobile();
-//        String password = loginVo.getPassword();
-//        if (StringUtils.isEmpty(password)) {
-//            return ResultEntity.failed(MsgConstant.MESSAGE_STRING_INVALIDATE);
-//        }
-//        if (!ValidateMobile.isMobile(mobile)){
-//            return ResultEntity.failed(MsgConstant.MESSAGE_Mobile_INVALIDATE);
-//        }
         boolean login = miaoshaUserService.login(response, loginVo);
         return ResultEntity.successWithoutData();
-//        return ResultEntity.successWithData(login);
     }
+
+
+    //用于创建token的登陆方法
+//    @RequestMapping("/doLogin")
+//    @ResponseBody
+//    public ResultEntity<String> doLogin(HttpServletResponse response,
+//                                @Valid LoginVo loginVo){
+//        log.info(loginVo.toString());
+//        String token = miaoshaUserService.login(response, loginVo);
+//        return ResultEntity.successWithData(token);
+//    }
 }

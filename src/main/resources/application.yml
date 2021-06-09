@@ -39,8 +39,28 @@ spring:
     testWhileIdle: true
     testOnBorrow: false
     testOnReturn: false
-
-
+  #rabbit
+  rabbitmq:
+    host: 39.108.150.106
+    port: 5672
+    username: admin
+    password: admin
+    virtual-host: /
+    listener:
+      simple:
+        #消费者数量
+        concurrency: 10
+        max-concurrency: 10
+        prefetch: 1
+        auto-startup: true
+        default-requeue-rejected: true
+    template:
+      retry:
+        enabled: true
+        initial-interval: 1000
+        max-attempts: 3
+        max-interval: 10000
+        multiplier: 1.0
 
 
 

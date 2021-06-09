@@ -1,13 +1,11 @@
 package cn.lbin.miaosha.dao;
 
-import cn.lbin.miaosha.domain.Goods;
 import cn.lbin.miaosha.domain.MiaoshaGoods;
 import cn.lbin.miaosha.vo.GoodsVo;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
-import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
@@ -29,5 +27,8 @@ public interface GoodsDao {
 
     @Update("update miaosha_goods set stock_count =stock_count-1 where " +
             "goods_id=#{id} and stock_count>0")
-    void reduceStock(MiaoshaGoods goods);
+    int reduceStock(MiaoshaGoods goods);
+
+    @Update("update miaosha_goods set stock_count = #{stockCount} where goods_id = #{goodsId}")
+    int resetStock(MiaoshaGoods g);
 }
