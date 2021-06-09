@@ -13,4 +13,5 @@ public class MiaoshaUserKey extends BasePrefix {
     }
 
     public static MiaoshaUserKey token = new MiaoshaUserKey(DEFAULT_EXPIRE,"tk");
+    public static MiaoshaUserKey getById = new MiaoshaUserKey(DEFAULT_EXPIRE,"id");
 }

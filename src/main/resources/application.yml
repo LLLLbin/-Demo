@@ -1,11 +1,26 @@
 spring:
+  #配置静态文件缓存
+  resources:
+    chain:
+      strategy:
+        content:
+          enabled: true
+          paths: /**
+      cache: true
+      compressed: false
+      enabled: true
+      html-application-cache: true
+    cache:
+      cachecontrol:
+        cache-public: true
+        max-age: 2h
+    static-locations: classpath:/static/
   #配置模板信息
   thymeleaf:
     cache: false
     enabled: true
     encoding: UTF-8
     mode: HTML5
-
   #配置数据源
   datasource:
     url: jdbc:mysql://39.108.150.106:3306/miaosha?useUnicode=true&characterEncoding=utf8&useSSL=false
@@ -28,6 +43,7 @@ spring:
 
 
 
+
 #mybatis
 mybatis:
   type-aliases-package: cn.lbin.miaosha.domain
@@ -43,7 +59,8 @@ redis:
   host: 39.108.150.106
   port: 6379
   password: 121522
-  timeout: 30000
+  timeout: 10000
   pool-max-total: 1000
   pool-max-idle: 500
   pool-max-wait: 500
+

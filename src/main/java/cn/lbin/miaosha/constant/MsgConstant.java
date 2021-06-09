@@ -28,4 +28,5 @@ public class MsgConstant {
     public static final String ATTR_NAME_DETAIL_PROJECT = "detailProjectVO";
     public static final String MIAOSHA_OVER="秒杀活动结束,库存不足";
     public static final String MIAOSHA_REPEAT="秒杀活动商品只能购买一件";
+    public static final String ORDER_NOT_EXIST="订单不存在";
 }

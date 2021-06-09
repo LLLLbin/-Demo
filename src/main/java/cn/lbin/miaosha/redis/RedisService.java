@@ -1,6 +1,8 @@
 package cn.lbin.miaosha.redis;
 
 import com.alibaba.fastjson.JSON;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
@@ -10,6 +12,9 @@ import redis.clients.jedis.JedisPoolConfig;
 
 @Component
 public class RedisService {
+
+    private Logger logger = LoggerFactory.getLogger(RedisService.class);
+
     @Autowired
     RedisConfig redisConfig;
 
@@ -58,6 +63,18 @@ public class RedisService {
             jedis = jedisPool.getResource();
             String realKey = keyPrefix.getPrefix() + key;
             return jedis.exists(realKey);
+        } finally {
+            returnToPool(jedis);
+        }
+    }
+
+    public boolean delete(KeyPrefix keyPrefix, String key) {
+        Jedis jedis = null;
+        try {
+            jedis = jedisPool.getResource();
+            String realKey = keyPrefix.getPrefix() + key;
+            Long result = jedis.del(realKey);
+            return result > 0;
         } finally {
             returnToPool(jedis);
         }
