@@ -9,6 +9,8 @@ public class MsgConstant {
     public static final String MESSAGE_SYSTEM_ERROR_LOGIN_NOT_UNIQUE = "错误！数据库中存在重复数据！";
     //登录的用户名
     public static final String LOGIN_ADMIN_NAME = "loginAdmin";
+    public static final String REQUEST_ILLEGAL = "请求非法";
+    public static final String ACCESS_LIMIT = "访问过于频繁";
 
     public static final String MESSAGE_ACCESS_FORBIDDEN = "还未登录，禁止访问受保护资源！";
     public static final String NAME_PAGE_INFO = "pageInfo";
@@ -27,6 +29,7 @@ public class MsgConstant {
     public static final String ATTR_NAME_PORTAL_TYPE_LIST = "portal_type_list";
     public static final String ATTR_NAME_DETAIL_PROJECT = "detailProjectVO";
     public static final String MIAOSHA_OVER="秒杀活动结束,库存不足";
+    public static final String MIAOSHA_FAILED="秒杀活动结束,库存不足";
     public static final String MIAOSHA_REPEAT="秒杀活动商品只能购买一件";
     public static final String ORDER_NOT_EXIST="订单不存在";
 }
