@@ -23,7 +23,7 @@ spring:
     mode: HTML5
   #配置数据源
   datasource:
-    url: jdbc:mysql://39.108.150.106:3306/miaosha?useUnicode=true&characterEncoding=utf8&useSSL=false
+    url: jdbc:mysql://******:3306/miaosha?useUnicode=true&characterEncoding=utf8&useSSL=false
     username: root
     password: 121522
     driver-class-name: com.mysql.jdbc.Driver
@@ -41,7 +41,7 @@ spring:
     testOnReturn: false
   #rabbit
   rabbitmq:
-    host: 39.108.150.106
+    host: ********
     port: 5672
     username: admin
     password: admin
@@ -76,7 +76,7 @@ mybatis:
 
 #redis
 redis:
-  host: 39.108.150.106
+  host: *************
   port: 6379
   password: 121522
   timeout: 10000
